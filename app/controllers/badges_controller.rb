@@ -9,7 +9,6 @@ class BadgesController < ApplicationController
   end
 
   def new
-    @badge = Badge.new
   end
 
   def edit
@@ -17,16 +16,7 @@ class BadgesController < ApplicationController
 
   def create
     @badge = Badge.new(badge_params)
-
-    respond_to do |format|
-      if @badge.save
-        format.html { redirect_to @badge, notice: 'Badge was successfully created.' }
-        format.json { render :show, status: :created, location: @badge }
-      else
-        format.html { render :new }
-        format.json { render json: @badge.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to badges_path
   end
 
   private
@@ -40,3 +30,4 @@ class BadgesController < ApplicationController
       params.require(:badge).permit(:badge_id, :badge_template_id, :issued_to, :recipient_email)
     end
 end
+
