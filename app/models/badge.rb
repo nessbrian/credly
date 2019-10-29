@@ -16,8 +16,8 @@ class Badge < ApplicationRecord
       "recipient_email": badge_params['recipient_email'],
       "badge_template_id": badge_params['badge_template_id'],
       "issued_at": Time.now,
-      "issued_to_first_name": "John",
-      "issued_to_last_name": "Doe"
+      "issued_to_first_name": badge_params['issued_to_first_name'],
+      "issued_to_last_name": badge_params['issued_to_last_name']
     }
     response = HTTParty.post(@@url, :body => data, :basic_auth => @@auth)
     #response.parsed_response["data"]
