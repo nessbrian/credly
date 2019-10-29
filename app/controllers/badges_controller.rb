@@ -9,6 +9,7 @@ class BadgesController < ApplicationController
   end
 
   def new
+    @available_templates = Badge.badge_templates
   end
 
   def edit

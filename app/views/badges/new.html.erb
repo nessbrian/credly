@@ -4,10 +4,12 @@
 <form class="new_badge" id="new_badge" action="/badges" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
 	<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
 
-  <div class="field">
-    <label for="badge_badge_template_id">Badge template id</label>
-    <input type="text" name="badge[badge_template_id]" id="badge_badge_template_id" />
-  </div>
+  <label for='badge_template_id'>Badge Template Id:</label>
+  <select name='badge[badge_template_id]' id='badge_badge_template_id'>
+    <% @available_templates.each do |template_id| %>
+    <option value="<%=template_id%>"><%=template_id%></option>
+    <% end %>
+  </select>
 
   <div class="field">
     <label for="issued_to_first_name">First Name of Badge Recipient</label>
