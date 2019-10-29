@@ -1,5 +1,27 @@
 <h1>New Badge</h1>
 
-<%= render 'form', badge: @badge %>
+
+<form class="new_badge" id="new_badge" action="/badges" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+  <div class="field">
+    <label for="badge_badge_template_id">Badge template id</label>
+    <input type="text" name="badge[badge_template_id]" id="badge_badge_template_id" />
+  </div>
+
+  <div class="field">
+    <label for="badge_issued_to">Issue badge to</label>
+    <input type="text" name="badge[issued_to]" id="badge_issued_to" />
+  </div>
+
+  <div class="field">
+    <label for="badge_recipient_email">Badge Recipient email</label>
+    <input type="text" name="badge[recipient_email]" id="badge_recipient_email" />
+  </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Create Badge" data-disable-with="Create Badge" />
+  </div>
+</form>
 
 <%= link_to 'Back', badges_path %>
